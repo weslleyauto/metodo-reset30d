@@ -12,10 +12,14 @@ import { ChapterPsychology } from '@/components/chapters/psychology'
 import { ChapterDailyPlan } from '@/components/chapters/daily-plan'
 import { ChapterProgress } from '@/components/chapters/progress'
 import { ChapterConclusion } from '@/components/chapters/conclusion'
+import { LogoutButton } from '@/components/logout-button'
 
 export default function EbookPage() {
   return (
     <main className="min-h-screen bg-background">
+      <div className="fixed top-4 right-4 z-50">
+        <LogoutButton />
+      </div>
       <BookCover />
       <TableOfContents />
       <ChapterPresentation />
