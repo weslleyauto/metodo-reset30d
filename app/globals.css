@@ -1,0 +1,63 @@
+@import 'tailwindcss';
+
+@theme inline {
+  --font-sans: 'Inter', 'Inter Fallback';
+  --font-serif: 'Playfair Display', 'Playfair Display Fallback';
+  
+  /* Color palette - Professional wellness theme */
+  --color-background: #fafaf9;
+  --color-foreground: #1c1917;
+  
+  --color-card: #ffffff;
+  --color-card-foreground: #1c1917;
+  
+  --color-primary: #16a34a;
+  --color-primary-foreground: #ffffff;
+  
+  --color-secondary: #0ea5e9;
+  --color-secondary-foreground: #ffffff;
+  
+  --color-accent: #f59e0b;
+  --color-accent-foreground: #ffffff;
+  
+  --color-muted: #f5f5f4;
+  --color-muted-foreground: #78716c;
+  
+  --color-destructive: #ef4444;
+  --color-destructive-foreground: #ffffff;
+  
+  --color-border: #e7e5e4;
+  --color-input: #e7e5e4;
+  --color-ring: #16a34a;
+  
+  --radius: 0.5rem;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif;
+  }
+}
+
+/* Print styles for PDF export */
+@media print {
+  .no-print {
+    display: none;
+  }
+  
+  .page-break {
+    page-break-after: always;
+  }
+  
+  body {
+    background: white;
+  }
+}
