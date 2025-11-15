@@ -55,11 +55,9 @@ export default function LoginPage() {
       <div className="absolute bottom-8 left-8 hidden lg:block">
         <div className="bg-white rounded-2xl shadow-xl p-4 max-w-xs border border-emerald-100 transform -rotate-2 hover:rotate-0 transition-transform">
           <div className="flex items-center gap-2 mb-2">
-            <img 
-              src="/brazilian-woman-casual-selfie-smiling-normal-perso.jpg" 
-              alt="Maria" 
-              className="w-10 h-10 rounded-full object-cover"
-            />
+            <div className="w-10 h-10 rounded-full bg-gradient-to-br from-pink-400 to-rose-500 flex items-center justify-center text-white font-semibold text-sm">
+              MS
+            </div>
             <div>
               <p className="font-semibold text-sm text-gray-800">Maria Silva</p>
               <p className="text-xs text-gray-500">há 2 dias</p>
@@ -82,11 +80,9 @@ export default function LoginPage() {
       <div className="absolute top-20 right-8 hidden lg:block">
         <div className="bg-white rounded-2xl shadow-xl p-4 max-w-xs border border-teal-100 transform rotate-2 hover:rotate-0 transition-transform">
           <div className="flex items-center gap-2 mb-2">
-            <img 
-              src="/brazilian-man-casual-selfie-happy-normal-person.jpg" 
-              alt="João" 
-              className="w-10 h-10 rounded-full object-cover"
-            />
+            <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-400 to-cyan-500 flex items-center justify-center text-white font-semibold text-sm">
+              JP
+            </div>
             <div>
               <p className="font-semibold text-sm text-gray-800">João Pedro</p>
               <p className="text-xs text-gray-500">há 1 semana</p>
@@ -109,11 +105,9 @@ export default function LoginPage() {
       <div className="absolute bottom-32 right-12 hidden xl:block">
         <div className="bg-white rounded-2xl shadow-xl p-4 max-w-xs border border-cyan-100 transform -rotate-3 hover:rotate-0 transition-transform">
           <div className="flex items-center gap-2 mb-2">
-            <img 
-              src="/brazilian-woman-brunette-selfie-normal-everyday-pe.jpg" 
-              alt="Ana" 
-              className="w-10 h-10 rounded-full object-cover"
-            />
+            <div className="w-10 h-10 rounded-full bg-gradient-to-br from-purple-400 to-pink-500 flex items-center justify-center text-white font-semibold text-sm">
+              AP
+            </div>
             <div>
               <p className="font-semibold text-sm text-gray-800">Ana Paula</p>
               <p className="text-xs text-gray-500">há 3 dias</p>
@@ -136,11 +130,9 @@ export default function LoginPage() {
       <div className="absolute top-40 left-12 hidden xl:block">
         <div className="bg-white rounded-2xl shadow-xl p-4 max-w-xs border border-emerald-100 transform rotate-1 hover:rotate-0 transition-transform">
           <div className="flex items-center gap-2 mb-2">
-            <img 
-              src="/brazilian-man-beard-casual-selfie-normal-person.jpg" 
-              alt="Carlos" 
-              className="w-10 h-10 rounded-full object-cover"
-            />
+            <div className="w-10 h-10 rounded-full bg-gradient-to-br from-orange-400 to-red-500 flex items-center justify-center text-white font-semibold text-sm">
+              CM
+            </div>
             <div>
               <p className="font-semibold text-sm text-gray-800">Carlos Mendes</p>
               <p className="text-xs text-gray-500">há 5 dias</p>
@@ -163,11 +155,9 @@ export default function LoginPage() {
       <div className="absolute top-1/2 right-32 hidden 2xl:block">
         <div className="bg-white rounded-2xl shadow-xl p-4 max-w-xs border border-purple-100 transform rotate-3 hover:rotate-0 transition-transform">
           <div className="flex items-center gap-2 mb-2">
-            <img 
-              src="/brazilian-woman-blonde-casual-selfie-normal-everyd.jpg" 
-              alt="Juliana" 
-              className="w-10 h-10 rounded-full object-cover"
-            />
+            <div className="w-10 h-10 rounded-full bg-gradient-to-br from-yellow-400 to-orange-500 flex items-center justify-center text-white font-semibold text-sm">
+              JC
+            </div>
             <div>
               <p className="font-semibold text-sm text-gray-800">Juliana Costa</p>
               <p className="text-xs text-gray-500">há 4 dias</p>
@@ -190,11 +180,9 @@ export default function LoginPage() {
       <div className="absolute bottom-1/2 left-40 hidden 2xl:block">
         <div className="bg-white rounded-2xl shadow-xl p-4 max-w-xs border border-orange-100 transform -rotate-1 hover:rotate-0 transition-transform">
           <div className="flex items-center gap-2 mb-2">
-            <img 
-              src="/brazilian-man-young-casual-selfie-normal-person.jpg" 
-              alt="Rafael" 
-              className="w-10 h-10 rounded-full object-cover"
-            />
+            <div className="w-10 h-10 rounded-full bg-gradient-to-br from-green-400 to-teal-500 flex items-center justify-center text-white font-semibold text-sm">
+              RS
+            </div>
             <div>
               <p className="font-semibold text-sm text-gray-800">Rafael Santos</p>
               <p className="text-xs text-gray-500">há 1 dia</p>
