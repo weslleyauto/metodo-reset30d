@@ -5,6 +5,18 @@ import { ChapterLayout } from './chapter-layout'
 import { TrendingUp, Calendar } from 'lucide-react'
 
 export function ChapterProgress() {
+  const [measurements, setMeasurements] = useState<{
+    [key: number]: {
+      date: string
+      weight: string
+      chest: string
+      waist: string
+      hip: string
+      thigh: string
+      arm: string
+    }
+  }>({})
+
   const [habitChecks, setHabitChecks] = useState<{ [key: string]: boolean[][] }>({
     week1: Array(8).fill(null).map(() => Array(7).fill(false)),
     week2: Array(8).fill(null).map(() => Array(7).fill(false)),
@@ -31,6 +43,31 @@ export function ChapterProgress() {
       newChecks[week][habitIndex][dayIndex] = !newChecks[week][habitIndex][dayIndex]
       return newChecks
     })
+  }
+
+  const updateMeasurement = (week: number, field: string, value: string) => {
+    setMeasurements(prev => ({
+      ...prev,
+      [week]: {
+        ...(prev[week] || {}),
+        [field]: value,
+      }
+    }))
+  }
+
+  const calculateTotalLost = (field: 'weight' | 'chest' | 'waist' | 'hip' | 'thigh' | 'arm') => {
+    const week1Value = parseFloat(measurements[1]?.[field] || '0')
+    const lastWeek = Object.keys(measurements)
+      .map(Number)
+      .filter(week => measurements[week]?.[field])
+      .sort((a, b) => b - a)[0]
+    
+    if (!lastWeek) return '-'
+    
+    const lastValue = parseFloat(measurements[lastWeek]?.[field] || '0')
+    const diff = week1Value - lastValue
+    
+    return diff > 0 ? `-${diff.toFixed(1)}` : diff < 0 ? `+${Math.abs(diff).toFixed(1)}` : '0'
   }
 
   return (
@@ -74,26 +111,93 @@ export function ChapterProgress() {
                 </tr>
               </thead>
               <tbody>
-                {Array.from({ length: 12 }, (_, i) => (
-                  <tr key={i} className="hover:bg-muted/30 transition-colors">
-                    <td className="border-2 border-border p-4 font-bold">Semana {i + 1}</td>
-                    <td className="border-2 border-border p-4 text-center text-muted-foreground">__/__/__</td>
-                    <td className="border-2 border-border p-4 text-center">_____</td>
-                    <td className="border-2 border-border p-4 text-center">_____</td>
-                    <td className="border-2 border-border p-4 text-center">_____</td>
-                    <td className="border-2 border-border p-4 text-center">_____</td>
-                    <td className="border-2 border-border p-4 text-center">_____</td>
-                    <td className="border-2 border-border p-4 text-center">_____</td>
-                  </tr>
-                ))}
+                {Array.from({ length: 12 }, (_, i) => {
+                  const weekNum = i + 1
+                  const weekData = measurements[weekNum] || {}
+                  
+                  return (
+                    <tr key={i} className="hover:bg-muted/30 transition-colors">
+                      <td className="border-2 border-border p-4 font-bold">Semana {weekNum}</td>
+                      <td className="border-2 border-border p-2 text-center">
+                        <input
+                          type="text"
+                          placeholder="__/__/__"
+                          value={weekData.date || ''}
+                          onChange={(e) => updateMeasurement(weekNum, 'date', e.target.value)}
+                          className="w-full bg-transparent text-center border-none outline-none focus:bg-primary/5 rounded px-2 py-1"
+                        />
+                      </td>
+                      <td className="border-2 border-border p-2 text-center">
+                        <input
+                          type="number"
+                          step="0.1"
+                          placeholder="0.0"
+                          value={weekData.weight || ''}
+                          onChange={(e) => updateMeasurement(weekNum, 'weight', e.target.value)}
+                          className="w-full bg-transparent text-center border-none outline-none focus:bg-primary/5 rounded px-2 py-1"
+                        />
+                      </td>
+                      <td className="border-2 border-border p-2 text-center">
+                        <input
+                          type="number"
+                          step="0.1"
+                          placeholder="0.0"
+                          value={weekData.chest || ''}
+                          onChange={(e) => updateMeasurement(weekNum, 'chest', e.target.value)}
+                          className="w-full bg-transparent text-center border-none outline-none focus:bg-primary/5 rounded px-2 py-1"
+                        />
+                      </td>
+                      <td className="border-2 border-border p-2 text-center">
+                        <input
+                          type="number"
+                          step="0.1"
+                          placeholder="0.0"
+                          value={weekData.waist || ''}
+                          onChange={(e) => updateMeasurement(weekNum, 'waist', e.target.value)}
+                          className="w-full bg-transparent text-center border-none outline-none focus:bg-primary/5 rounded px-2 py-1"
+                        />
+                      </td>
+                      <td className="border-2 border-border p-2 text-center">
+                        <input
+                          type="number"
+                          step="0.1"
+                          placeholder="0.0"
+                          value={weekData.hip || ''}
+                          onChange={(e) => updateMeasurement(weekNum, 'hip', e.target.value)}
+                          className="w-full bg-transparent text-center border-none outline-none focus:bg-primary/5 rounded px-2 py-1"
+                        />
+                      </td>
+                      <td className="border-2 border-border p-2 text-center">
+                        <input
+                          type="number"
+                          step="0.1"
+                          placeholder="0.0"
+                          value={weekData.thigh || ''}
+                          onChange={(e) => updateMeasurement(weekNum, 'thigh', e.target.value)}
+                          className="w-full bg-transparent text-center border-none outline-none focus:bg-primary/5 rounded px-2 py-1"
+                        />
+                      </td>
+                      <td className="border-2 border-border p-2 text-center">
+                        <input
+                          type="number"
+                          step="0.1"
+                          placeholder="0.0"
+                          value={weekData.arm || ''}
+                          onChange={(e) => updateMeasurement(weekNum, 'arm', e.target.value)}
+                          className="w-full bg-transparent text-center border-none outline-none focus:bg-primary/5 rounded px-2 py-1"
+                        />
+                      </td>
+                    </tr>
+                  )
+                })}
                 <tr className="bg-accent/10 font-bold">
                   <td colSpan={2} className="border-2 border-border p-4">TOTAL PERDIDO</td>
-                  <td className="border-2 border-border p-4 text-center">_____</td>
-                  <td className="border-2 border-border p-4 text-center">_____</td>
-                  <td className="border-2 border-border p-4 text-center">_____</td>
-                  <td className="border-2 border-border p-4 text-center">_____</td>
-                  <td className="border-2 border-border p-4 text-center">_____</td>
-                  <td className="border-2 border-border p-4 text-center">_____</td>
+                  <td className="border-2 border-border p-4 text-center text-primary">{calculateTotalLost('weight')}</td>
+                  <td className="border-2 border-border p-4 text-center text-primary">{calculateTotalLost('chest')}</td>
+                  <td className="border-2 border-border p-4 text-center text-primary">{calculateTotalLost('waist')}</td>
+                  <td className="border-2 border-border p-4 text-center text-primary">{calculateTotalLost('hip')}</td>
+                  <td className="border-2 border-border p-4 text-center text-primary">{calculateTotalLost('thigh')}</td>
+                  <td className="border-2 border-border p-4 text-center text-primary">{calculateTotalLost('arm')}</td>
                 </tr>
               </tbody>
             </table>
