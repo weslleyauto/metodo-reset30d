@@ -11,12 +11,31 @@ export const users: User[] = [
     password: '1024',
     name: 'Weslley'
   },
-  // Adicione mais usuários aqui conforme necessário
-  // {
-  //   username: 'outro_usuario',
-  //   password: 'outra_senha',
-  //   name: 'Nome Completo'
-  // }
+  {
+  username: '482913',
+  password: 'k9s2d',
+  name: 'Usuario1'
+},
+{
+  username: '739150',
+  password: 'p4x8t',
+  name: 'Usuario2'
+},
+{
+  username: '195467',
+  password: 'tq3m7',
+  name: 'Usuario3'
+},
+{
+  username: '860234',
+  password: 'z1b6q',
+  name: 'Usuario4'
+},
+{
+  username: '517802',
+  password: 'm8r2k',
+  name: 'Usuario5'
+}
 ]
 
 export function validateUser(username: string, password: string): User | null {
